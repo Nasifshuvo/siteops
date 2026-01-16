@@ -1,0 +1,16 @@
+{
+    "siteName": "Test.com Site",
+    "defaultLanguage": "en",
+    "crm": {
+        "provider": "checkoutChamp",
+        "apiUser": "test_user",
+        "apiKey": "test_key",
+        "endpoint": "https://api.test.com"
+    },
+    "campaigns": {
+        "en": {
+            "campaignId": "100",
+            "gatewayId": "10"
+        }
+    }
+}

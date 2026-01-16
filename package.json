@@ -1,0 +1,42 @@
+{
+  "name": "siteops",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'tsx src/server.ts'",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
+  },
+  "keywords": [
+    "proxy",
+    "multisite",
+    "manager",
+    "nodejs",
+    "reverse-proxy",
+    "host-manager"
+  ],
+  "author": "Shuvo",
+  "license": "MIT",
+  "type": "module",
+  "description": "A modern, programmable website, proxy, and multisite manager for Node.js. Built to replace complex Nginx configurations with a headless, developer-friendly core.",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.8",
+    "@types/supertest": "^6.0.3",
+    "nodemon": "^3.1.11",
+    "supertest": "^7.2.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0"
+  }
+}
