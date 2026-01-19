@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import { vhostMiddleware } from './middleware/vhost.js';
 import './types/config.js';
 import { staticMiddleware } from './middleware/static.js';
+import siteRoutes from './routes/site.js';
 
 // Initialize the application
 const app = express();
@@ -15,6 +16,11 @@ app.use(helmet({
 })); 
 app.use(cors());   // Handling CORS
 app.use(express.json()); // Parse JSON bodies
+
+// Site Management API (before vhost middleware - doesn't need site context)
+app.use('/site', siteRoutes);
+
+// Virtual Host Middleware (for site-specific requests)
 app.use(vhostMiddleware);
 app.use(staticMiddleware);
 
