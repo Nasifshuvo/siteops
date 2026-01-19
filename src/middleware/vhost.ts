@@ -3,8 +3,9 @@ import path from 'path';
 import fs from 'fs';
 import type { SiteConfig } from '../types/config.js';
 
-// Get current directory in ESM mode (since __dirname doesn't exist in ESM)
-const sitesRoot = path.join(process.cwd(), 'sites');
+// Sites root: configurable via SITES_PATH env variable
+// Defaults to ./sites for local development, /var/www/sites for production/Docker
+const sitesRoot = process.env.SITES_PATH || path.join(process.cwd(), 'sites');
 
 export const vhostMiddleware = (req: Request, res: Response, next: NextFunction) => {
     // 1. Get the hostname (remove port number if present, e.g. localhost:3000 -> localhost)
