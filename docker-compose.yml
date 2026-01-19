@@ -1,20 +1,15 @@
-version: '3.8'
-
 services:
   headless-core:
     build: .
     ports:
       - "3000:3000"
-    environment:
-      - SITES_PATH=/var/www/sites
-      - PORT=3000
-      - NODE_ENV=production
+    env_file:
+      - .env.docker
     volumes:
       # Development: mount local sites folder
       - ./sites:/var/www/sites
       # Production: use named volume or host path
-      # - /path/to/host/sites:/var/www/sites
-      # - sites-data:/var/www/sites
+      # - /var/www/sites:/var/www/sites
     restart: unless-stopped
 
 # Named volume for production deployments
