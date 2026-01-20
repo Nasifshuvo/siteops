@@ -5,6 +5,7 @@ import { vhostMiddleware } from './middleware/vhost.js';
 import './types/config.js';
 import { staticMiddleware } from './middleware/static.js';
 import siteRoutes from './routes/site.js';
+import sslRoutes from './routes/ssl.js';
 
 // Initialize the application
 const app = express();
@@ -19,6 +20,9 @@ app.use(express.json()); // Parse JSON bodies
 
 // Site Management API (before vhost middleware - doesn't need site context)
 app.use('/site', siteRoutes);
+
+// SSL Management API
+app.use('/site/ssl', sslRoutes);
 
 // Virtual Host Middleware (for site-specific requests)
 app.use(vhostMiddleware);
